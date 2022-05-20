@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div>
+    <h2>La liste des Pays</h2>
+    </br>
+    <ul>
+    {% for nationalite in liste_nationalite%}
+
+        <div>
+          <div>
+            {{ nationalite }}
+          </div>
+          <div>
+            <ul>
+                <li>{{nationalite.style}}</li>
+                <p> </p>
+                {% for l in liste%}
+                {%if l.Nationalite == nationalite %}
+                <li> {{l}} </li>
+                {% endif %}
+                {% endfor %}
+                <a href="/bibliotheque/delete_nationalite/{{nationalite.id}}/" type="button" > Delete </a>
+            </ul>
+
+          </div>
+        </div>
+
+    {% empty %}
+    Votre base de données est vide ! <a href="{% url 'ajout_nationalite' %}"> Ajouter le premier pays</a>.
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

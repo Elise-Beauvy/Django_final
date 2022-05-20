@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h2>Ajout d'un Pays</h2>
+    <br/><br/>
+
+
+    <form method="post">
+            {% csrf_token %}
+            <div>
+                <div>
+                    {{ form.nationalite}}
+                </div>
+            </div>
+
+        <br/><br/>
+        <button href="/bibliotheque/ajout/"> Ajoutez le pays</button>
+    </form>
+</div>
+{% endblock %}
